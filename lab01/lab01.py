@@ -77,7 +77,34 @@ bitAnd(6, 5)
 #    Eksempel: bitXor(4, 5) = 1
 #
 def bitXor(x, y):
+    print x^y
+    binara = bin(x)[2:] 
+    binarb = bin(y)[2:]
+    binarc = ''
+    iterator = 0
+    
+    for x in binara:
+        if int(x) + int(binarb[iterator]) ==2:
+            binarc += '0'
+        if int(x) + int(binarb[iterator]) == 1 and int(x) == 1:
+            binarc += '1'
+        if int(x) + int(binarb[iterator]) == 1 and int(x) == 0:
+            binarc += '1'
+        if int(x) + int(binarb[iterator]) == 0:
+            binarc += '0'
+        iterator +=1
+    print "her er endelig resultat etter bitwise x^y i binært"
+    print binarc
+    print "Her er endelig resultat etter bitwise xŷ i character
+    print int(binarc, 2)
+    
+bitXor(4, 5)
+        
+        
+        
+        
 	pass
+	
 
 #
 #  Oppgave 4
