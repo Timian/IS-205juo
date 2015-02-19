@@ -67,7 +67,6 @@ def bitAnd(x, y):
     print binarc
     print "Her er endelig resultat etter bitwise x&y i character"
     print int(binarc, 2)
-    return int(binarc, 2)
     
 bitAnd(6, 5)
 
@@ -98,7 +97,6 @@ def bitXor(x, y):
     print binarc
     print "Her er endelig resultat etter bitwise xŷ i character"
     print int(binarc, 2)
-    return int(binarc, 2)
     
 bitXor(4, 5)
         
