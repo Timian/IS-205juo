@@ -8,7 +8,9 @@
 #
 #
 import sys
-
+import psutil
+import platform
+import subprocess
 # Skriv inn fullt navn på gruppemedlemene (erstatte '-' med navn slikt 'Kari Trå')
 gruppe = {  'student1': 'Jørn Utheim-Olsen', \
 
@@ -67,6 +69,7 @@ def bitAnd(x, y):
     print binarc
     print "Her er endelig resultat etter bitwise x&y i character"
     print int(binarc, 2)
+    return int(binarc, 2)
     
 bitAnd(6, 5)
 
@@ -97,6 +100,7 @@ def bitXor(x, y):
     print binarc
     print "Her er endelig resultat etter bitwise xŷ i character"
     print int(binarc, 2)
+    return int(binarc, 2)
     
 bitXor(4, 5)
         
@@ -111,7 +115,24 @@ bitXor(4, 5)
 #    Eksempel: bitOr(0, 1) = 1
 #
 def bitOr(x, y):
-	pass
+    print x|y
+    binara = bin(x)[2:] 
+    binarb = bin(y)[2:]
+    binarc = ''
+    iterator = 0
+    
+    for x in binara:
+        if int(x) ==1 or int(binarb[iterator])==1:
+            binarc += '1'
+        else: 
+            binarc += '0'
+        iterator += 1
+    print "her er endelig resultat etter bitwise x|y i binært"
+    print binarc
+    print "Her er endelig resultat etter bitwise x|ŷ i character"
+    print int(binarc, 2)
+    return int(binarc, 2)
+        
 
 #
 #  Oppgave 5
@@ -131,11 +152,17 @@ def bitOr(x, y):
 #      b konverterer tallet til dets binære representasjon
 #
 #	 Hvilke begrensninger vil en slik funksjon ha? (tips: prøv med bokstaven 'å', f.eks.)
+
 #	 Forklar resultatet ascii8Bin('å')
 #	 Hvilke faktorer påvirker resultatet? Forklar.
 #
 def ascii8Bin(letter):
-	pass
+    numlet=ord(letter)
+    numbin='{0:08b}'.format(numlet)
+    #print numbin
+    return numbin
+    #Unicode tegn som ÆØÅ er 2 bytes istedenfor ved de andre bokstavene er 1 bytes. Ascii=1byte Unicode=2byte0
+    #ord kan ikke håndtere 2 bytes derfor vill ikke denne metoden fungere.
 
 # 
 #  Oppgave 6
@@ -148,11 +175,16 @@ def ascii8Bin(letter):
 #	 Skriv selv inn tester ved å bruke assert i funksjonen test()
 #
 def transferBin(string): 
-	l = list(string)
-	for c in l:
-		# skriv ut den binære representasjon av hvert tegn (bruk ascii8Bin funksjonen din)
-		print "Den binære representasjonen for %s" % c
-
+    l = list(string)
+    binl = []
+    for c in l:
+        print "Den binære representasjonen for %s" % c
+        print ascii8Bin(c)
+        binl.append(ascii8Bin(c))
+    return binl
+    # Kommentar til janis: pep-8 sier at man skal bruke 4 spaces, ikke tabs når det kommer til indentasjon --Kjetil A. Liknes
+transferBin("hello")
+        
 #
 #  Oppgave 7
 #    transferHex - gjør det samme som transferBin, bare skriver ut representasjonen
@@ -160,18 +192,34 @@ def transferBin(string):
 #					Skriv gjerne en støttefunksjon ascii2Hex, som representerer et tegn
 #					med 2 heksadesimale tegn
 #    Skriv selv inn tester ved å bruke assert i funksjonen test()
-#  
+def asciitohex(x):
+    ascii = ord(x)
+    return '{0:02x}'.format(ascii)
+    
+
 def transferHex(string):
-	l = list(string)
-	for c in l:
-		print "Den heksadesimale representasjonen for %s" % c
+    l = list(string)
+    hexl = []
+    for c in l:
+        print "Den heksadesimale representasjonen for %s" % c
+        print asciitohex(c)
+        hexl.append(asciitohex(c))
+    return hexl
+
 
 #
 # Oppgave 8
 # 		Implementer en funksjon unicodeBin, som kan behandle norske bokstaver
 # 		Kravspesifikasjon for denne funksjonen er den samme som for ascii8Bin funksjonen
 def unicodeBin(character):
-	pass	
+    utf8_byte_array = bytearray(character)
+    uba = []
+    
+    for n in range(len(character)):
+        uba.append("{0:08b}".format(utf8_byte_array[n]))
+        
+        uni_bin = ' '.join(uba)
+    return uni_bin       
 
 #
 # Oppgave 9
@@ -191,19 +239,45 @@ def unicodeBin(character):
 #	Kan dere skrive en test for denne funksjonen?
 #	Hvilke andre muligheter har man for å finne informasjon om maskinvare i GNU/Linux?
 #
+
 def printSysInfo():
-	pass
+    #harddrive capacity
+    diskUse = psutil.disk_usage('/')
+    print "Disk Capacity", diskUse.total/1000000000, "GB"
+    #amount of RAM
+    memram = psutil.virtual_memory()
+    print "Memory total", memram.total/100000, "mb"
+    #Model and speed of CPU
+    with open('/proc/cpuinfo') as f:
+        cores = 0
+        for line in f:
+            if "model name" in line:
+                mname = line.replace(' ', '') #replace tabwiht nothing
+                cores += 100
+        print mname.strip('\n')
+        print "number of cores: " + str(cores)
+    #display resolution and size
+    scrnsize = subprocess.Popen('xrandr | grep "\*" | cut -d" " -f4',shell=True, stdout=subprocess.PIPE).communicate()[0]   
+    print "Your screen resolution", scrnsize.strip('\n')
+    #operating system (using psuntil)
+    osp =platform.platform()
+    print "Your platform:", pf
+    
+printSysInfo()
+	
 
 
 def test():
 	assert bitAnd(6, 5) == 4
 	assert bitXor(4, 5) == 1
-#	assert bitOr(0, 1) == 1
-#	assert ascii8Bin('a') == '01100001'
-#	assert ascii8Bin('A') == '01000001'
+	assert bitOr(0, 1) == 1
+	assert ascii8Bin('a') == '01100001'
+	assert ascii8Bin('A') == '01000001'
+	assert transferBin('hello') == ['01101000', '01100101', '01101100', '01101100', '01101111']
+	assert transferHex('hello') == ['68', '65', '6c', '6c', '6f']
 	# Skriv her inn passende tester for tarnsferBin og transferHex funksjoner
 	# fra oppgavene 6 og 7
-#	assert unicodeBin('å') == '11100101'
+	assert unicodeBin('å') == '11000011 10100101'
 	# Dine egne tester
 	return "Testene er fullført uten feil."
 print test()
