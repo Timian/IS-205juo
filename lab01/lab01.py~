@@ -37,6 +37,7 @@ def ascii_bird():
     print   r"    (./"
     print   r"     '` "
 ascii_bird() 
+# over: print av ascci_bird
 
 # 
 #  Oppgave 2
@@ -213,11 +214,11 @@ def transferHex(string):
 # 		Kravspesifikasjon for denne funksjonen er den samme som for ascii8Bin funksjonen
 def unicodeBin(character):
     utf8_byte_array = bytearray(character)
-    uba = []
+    uba = [] 
     
     for n in range(len(character)):
         uba.append("{0:08b}".format(utf8_byte_array[n]))
-        
+
         uni_bin = ' '.join(uba)
     return uni_bin       
 
@@ -252,7 +253,7 @@ def printSysInfo():
         cores = 0
         for line in f:
             if "model name" in line:
-                mname = line.replace(' ', '') #replace tabwiht nothing
+                mname = line.replace(' ', '') #replace tab wiht nothing
                 cores += 100
         print mname.strip('\n')
         print "number of cores: " + str(cores)

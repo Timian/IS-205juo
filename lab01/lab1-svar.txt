@@ -2,10 +2,15 @@ LAB1-SVAR
 
 ❏ operatørprioritet in Python
 (http://docs.python.org/2/reference/expressions.html#operator-precedence)
+Operatorpriority is in wich order Python will do the command, like. math, you learn at school on what you should do first ex. 2 + 3 * 4 there you will take the addition fist and then the multiplication
+(Source: http://www.ibiblio.org/g2swap/byteofpython/read/operator-precedence.html   date: 08.03.2015)
+
 
 ❏ one’s complement (http://en.wikipedia.org/wiki/Ones'_complement)
+How it works is that you can take all the bits and flipp it or invertig. like 0 will be 1 and 0 will be 1. that is how you will find the one's complement.
+(Source: https://www.youtube.com/watch?v=I9aOyRlJs6Y+ date: 08.03.2015)
 
 ❏ pass er et reservert ord i Python, hva er dets funksjon?
 Is used when a statment is required, but you don't want to execute any command or code. can be helpful if you have different function you don't have finished/ started coding yet, then you can just write pass under the different function you have't coded yet. (Source: http://www.tutorialspoint.com/python/python_pass_statement.htm date: 27.02.2015)
 
-❏ finn ut hva hver eneste linje av kode betyr og beskriv det i besvarelsen
+❏ finn ut hva hver eneste linje av kode betyr og beskriv det i besvarelsensee lab01.py there you can read the comments on the code that are written.

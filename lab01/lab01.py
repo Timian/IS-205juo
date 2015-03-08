@@ -37,6 +37,7 @@ def ascii_bird():
     print   r"    (./"
     print   r"     '` "
 ascii_bird() 
+# over: print av ascci_bird
 
 # 
 #  Oppgave 2

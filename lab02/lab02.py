@@ -63,7 +63,7 @@ def decitoroman(dec):
 			result = result + digit * 'M'
 
 		elif dec_len >= 5:
-			# storre enn Thousands
+			# bigger than Thousands
 			result = result + digit * '''Learning time: Roman doesn\'t use that\
 			 high numbers\n'''
 
@@ -75,7 +75,7 @@ def decitoroman(dec):
 
 	return result
 
-#print dec2roman(13100)
+#print decitoroman(13100)
 #print "Skriv lab2.romanmath('*forste tall*', '*operator*', '*andre tall*')"
 
 ops = {"+": operator.add,
@@ -84,5 +84,5 @@ ops = {"+": operator.add,
 	   "/": operator.div}
 
 def romanmath(par1, op, par2):
-	#operator tar parameter par1 og par2 om til desimal
+	#operator takes the parameters par1 and par2 to decimal
 	return decitoroman(ops[op](romantodeci(par1), romantodeci(par2)))
