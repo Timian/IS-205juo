@@ -1,0 +1,5 @@
+oppgave 3.
+- forskjellene mellom store og små bokstaver er den tredje bitten,
+
+Oppgave 4.
+- Unicode karaktere er to byte, som vill si at den første byten er lik hele tiden, mens den andre byten vill endre seg etter hvilken av de tre bokstavene ÆØÅ man bruker og da når man bruker store og små bokstaver så er det den tredje bitten i den andre byten som skal/eller endres

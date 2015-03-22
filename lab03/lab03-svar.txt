@@ -1,0 +1,8 @@
+oppgave 3.
+- forskjellene mellom store og små bokstaver er den tredje bitten,
+
+Oppgave 4.
+- Unicode karaktere er to byte, som vill si at den første byten er lik hele tiden, mens den andre byten vill endre seg etter hvilken av de tre bokstavene ÆØÅ man bruker og da når man bruker store og små bokstaver så er det den tredje bitten i den andre byten som skal/eller endres
+
+Oppgave 7.
+- Grunnen for at man skulle valgt TCP i dette tilfelle er at vi ville fått et svar ifra serveren om den har mottatt eller ikke mottat. med UDP så svarer den ikke tilbake, noe som igjen kan gjøre et problematisk for oss visst for eksempel serveren krasjer. for det kan bety at serveren for vår del siden vi ikke får svar at den bruker lang tid eller har krasjet. med med TCP ville man fått beskjed om den klarer å oprette kontakt mellom host og klient.
