@@ -1,0 +1,73 @@
+oppg. 1 C) .i filer er for en C pre prosesser (itermediate file) .o er objektfiler for C++ .S er en assembly fil. 
+
+oppg.2 D) 'rb' parameteren står for "read" og "byte" flaggene, altså at man
+skal åpne filen og se på bytesa.
+
+oppg.3 
+A)'B' betyr Unsigned character
+B)'f.read)1)' leser den første byten
+C)'unpack' pakker ut stringen til det aktuelle formatet
+D)'bin' = 127
+
+oppg.4
+A)0
+B)0
+C)'0'
+D)0
+E)['0', '1', '1', '1', '1', '1', '1', '1']
+F)'01111111'
+G)'0X7f'
+H)0x7f er de første bytene i headeren og er den delen som gir garantier for at filformat blir riktig identifisert. og har også mulgihet til å gi en mer detaljert informasjon om formatet og programmet.
+I)69(0x45)
+J)Den endret seg, den ble til den andre byten.
+
+oppg.5
+Python har en modul som er lagd gjennom pip som heter hexdump som gjør at man kan sjekke det opp mot ELF spesifikasjonen
+https://pypi.python.org/pypi/hexdump
+
+
+oppg.6
+A)
+>>> f = open("test1.exe", "rb")
+>>> bin = struct.unpack('B', f.read(1))[0]
+>>> bin
+127
+>>> bin = struct.unpack('B', f.read(1))[0]
+>>> bin
+69
+>>> bin
+69
+>>> bin = struct.unpack('B', f.read(1))[0]
+>>> bin
+76
+>>> bin = struct.unpack('B', f.read(1))[0]
+>>> hex(bin)
+'0x46'
+>>> hex(76)
+'0x4c'
+>>> hex(69)
+'0x45'
+
+Dette viser Fil signaturen til ELF, som er 0x7f fulgt av ELF stemmer.
+
+B) magic numbers som er en del av en filsignatur.
+
+oppg.7
+A) den leser byte for byte.
+B) Du kan bruke et program som ble nevt i oppg. 5: Python har en modul som er lagd gjennom pip som heter hexdump som gjør at man kan sjekke det opp mot ELF spesifikasjonen
+https://pypi.python.org/pypi/hexdump
+
+oppg.8
+ja python har filen som jobbes med.
+
+oppg.9
+Den viser pipes so brukes for å lese det som gjøres.
+
+oppg.10
+Når jeg forøskte å stenge det ved f.close så var det ingen endringer i fil-deskritoren.
+
+oppg.11
+A) I store trekk så burde POSIX standarden følges. http://en.wikipedia.org/wiki/POSIX
+
+B)For å kunne lese / skrive en ELF kan programmer som https://pypi.python.org/pypi/elflib/0.1.0 være til hjelp. MEN personlig så ville jeg brukt et eksisterende bibliotek, slik at man har en grunnleggende base i jobbe i.
+
