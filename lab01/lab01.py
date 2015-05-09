@@ -262,7 +262,7 @@ def printSysInfo():
     print "Your screen resolution", scrnsize.strip('\n')
     #operating system (using psuntil)
     osp =platform.platform()
-    print "Your platform:", pf
+    print "Your platform:", osp
     
 printSysInfo()
 	

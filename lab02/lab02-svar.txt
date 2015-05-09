@@ -1,0 +1,20 @@
+1. Hva er grunnleggende forskjeller på det desimale og det romerske tall systemet? (forklar fra designperspektivet)
+Det romerske og det desimale tall systemet er veldig forskjellige ifra hverandrebasert ut ifra at det romerske bygger på det latinske alfabetet. Men andre vesentlige forskjeller er at i det latinske alafabetet så brukes matematikk for å kunne vise det riktige tall. eks. 4 blir IV som igjen vill si I=1 og V=5 og det blir dermed trukket fra 1 fra fem for å bli fire. visst det skulle blitt 6 så blir det VI for da plusser man på en. så det er viktig å se hvor man plassere I foran eller bak. 
+(kilde: http://en.wikipedia.org/wiki/Roman_numerals)
+
+Mens når det kommer til desimaltallet så inneholder dette tall, desimal tallsystemet er bygget opp av en heltallsdel og en fraksjons del. det vil si eks. 4.90 der 4 er helt tall og 90 er fraksjonsdelen. 
+og dette skilles ved bruk av komma i norge mens i andre lan er bruk av punktum som desimalskilletegn.
+Brukes gjerne for å skaffe en tilnørming men også til avrundig, derfor er dette noe man ofte ser i butikkene som driver med avrunding enten opp eller ned.
+(kilde:http://no.wikipedia.org/wiki/Desimaltall)
+
+Så for å si det slik er at forskjellen mellom det romerske og det desimale tall systemet er at i det desimale tallsystemet brukes det tall som 123 og at det skille mellom heltall og del tall/fraksjonsdel. 45,99 Mens i det romerske tall system så brukes det bokstaver ifra det Latinske alfabet. og for å finne tall som ikke har en spesifikk bokstav så brukes matematikk for å regne det ut. forskjelle er om det kommer foran eller bak. IV(4) eller VI(6)
+
+2. Hva er grunleggende systeminformasjon som testene er vlitt uført på (operatissystemet, distribusjon, informasjon om CPU type)
+Disk Capacity 18 GB
+Memory total 8098 mb
+modelname	:Intel(R)Core(TM)i5-3337UCPU@1.80GHz
+number of cores: 100
+Your screen resolution 1366x663
+Your platform: Linux-2.6.32-504.el6.x86_64-x86_64-with-centos-6.6-Final
+
+
